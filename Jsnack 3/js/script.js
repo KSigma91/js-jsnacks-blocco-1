@@ -1,36 +1,26 @@
 // do una lista di parole da mettere in ordine
-const list1 = ["parola1-1", "parola2-1", "parola3-1", "parola4-1", "parola5-1"];
+const primoArray = ["parola1-1", "parola2-1", "parola3-1", "parola4-1", "parola5-1"];
+const secondoArray = ["parola1-2", "parola2-2"];
 
-const list2 = ["parola1-2", "parola2-2"];
+// seleziono la prima lista array
+const primoUl = document.getElementById("mio_id");
 
-// seleziono la prima lista
-const myAppend = document.querySelector(".my_list");
+// nella prima lista array andrò a creare un "li" a cui associare il contenuto, dopodichè lo aggiungerò a "ul" 
+for (let i = 0; i < primoArray.length; i++){
+    let primoContenuto = primoArray[i];
+    let primoLi = document.createElement("li");
+    primoLi.append(primoContenuto);
+    primoUl.append(primoLi);
 
-// prima lista
-for (let i = 0; i < list1.leght; i++) {
+    // creo la seconda lista array creando un "ul"
+    const secondoUl = document.createElement("ul");
 
-    let myCont = list1[i];
-
-    let myLi = document.createElement("li");
-
-    myLi.append(myCont);
-
-    myAppend.append(myLi);
-
-    // seleziono la seconda lista
-    let myAppend2 = document.createElement("ul");
-
-    // seconda lista
-    for (let j = 0; j < list2.length; j++) {
-
-        let myCont2 = list2[j];
-
-        let myLi2 = document.createElement("li");
-
-        myLi2.append(myCont2);
-
-        myAppend2.append(myLi2);
-
-        myLi.append(myAppend2);
+    // nella seconda lista array farò la stessa procedura e aggiungerò "ul" dentro "li" del primo array
+    for (let j = 0; j < secondoArray.length; j++){
+        let secondoContenuto = secondoArray[j];
+        let secondoLi = document.createElement("li");
+        secondoLi.append(secondoContenuto);
+        secondoUl.append(secondoLi);
+        primoLi.append(secondoUl);
     }
 }
